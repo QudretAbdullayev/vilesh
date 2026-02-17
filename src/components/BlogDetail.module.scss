@@ -1,0 +1,250 @@
+@import '../app/globals.css';
+
+.page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0f0f0f;
+    /* Dark premium background */
+    color: #f5f5f5;
+    padding-bottom: 5rem;
+}
+
+/* Progress Bar */
+.progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+    /* Adjust to brand colors */
+    transform-origin: 0%;
+    z-index: 100;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    max-height: 85vh;
+    /* Prevent it from being too tall on ultra-wide */
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 4rem;
+}
+
+.heroImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    z-index: 0;
+}
+
+.heroOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(15, 15, 15, 0) 0%, rgba(15, 15, 15, 0.9) 100%);
+    z-index: 1;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.category {
+    display: inline-block;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: hsla(0, 0%, 100%, 0.6);
+    margin-bottom: 1rem;
+    border: 1px solid hsla(0, 0%, 100%, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 99px;
+    backdrop-filter: blur(4px);
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #fff, #999);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: hsla(0, 0%, 100%, 0.5);
+    font-size: 0.9rem;
+}
+
+.dot {
+    width: 4px;
+    height: 4px;
+    background-color: currentColor;
+    border-radius: 50%;
+}
+
+.container {
+    max-width: 1200px;
+    /* Wide container */
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    /* Sidebar | Content */
+    gap: 4rem;
+    position: relative;
+}
+
+.sidebar {
+    /* Sticky Logic */
+    position: sticky;
+    top: 6rem;
+    /* Adjust based on navbar height, if any */
+    height: fit-content;
+    align-self: start;
+    /* CRITICAL for sticky in grid */
+    z-index: 10;
+    display: none;
+    /* Hidden on mobile by default */
+}
+
+@media (min-width: 1024px) {
+    .sidebar {
+        display: block;
+    }
+}
+
+.toc {
+    position: relative;
+}
+
+.tocTitle {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: hsla(0, 0%, 100%, 0.4);
+    margin-bottom: 1.5rem;
+}
+
+.tocList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border-left: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+
+.tocLink {
+    display: block;
+    font-size: 0.95rem;
+    color: hsla(0, 0%, 100%, 0.5);
+    text-decoration: none;
+    padding-left: 1rem;
+    border-left: 2px solid transparent;
+    margin-left: -1px;
+    /* Align with border */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tocLink:hover {
+    color: #fff;
+}
+
+.activeTocLink {
+    color: #fff;
+    border-left-color: #f9cb28;
+    /* Accent color */
+}
+
+.content {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: hsla(0, 0%, 100%, 0.85);
+    max-width: 800px;
+    /* Optimal reading width */
+}
+
+/* Typography for HTML Content */
+.content h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    scroll-margin-top: 6rem;
+    /* Offset for sticky header */
+}
+
+.content h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #eee;
+    scroll-margin-top: 6rem;
+}
+
+.content p {
+    margin-bottom: 1.5rem;
+}
+
+.content code {
+    background: hsla(0, 0%, 100%, 0.1);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+.backButton {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 99px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.backButton:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}

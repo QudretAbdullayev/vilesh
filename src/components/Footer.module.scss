@@ -1,0 +1,188 @@
+// Footer.module.scss
+
+// Shared palette with CornerNav
+$primary: #7c3aed;
+$primary-dark: #6d28d9;
+$primary-darker: #5b21b6;
+$primary-light: #a78bfa;
+$text-light: #f5f3ff;
+$text-white: #ffffff;
+
+.footer {
+  background-color: $primary-dark;
+  color: $text-light;
+  padding: 4rem 2rem 2rem;
+  position: relative;
+}
+
+.top {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  max-width: 320px;
+}
+
+.logo {
+  width: 4rem;
+  height: 4rem;
+  background-color: $text-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: $primary;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  color: $primary-light;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  gap: 4rem;
+}
+
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  h4 {
+    color: $text-white;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  a {
+    color: $primary-light;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $text-white;
+    }
+  }
+}
+
+.divider {
+  max-width: 1200px;
+  margin: 3rem auto 1.5rem;
+  height: 1px;
+  background-color: rgba($text-white, 0.15);
+}
+
+.bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.copy {
+  color: $primary-light;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ── Social icon animation ── */
+
+.socials {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li a {
+    width: 40px;
+    height: 40px;
+    background-color: $text-white;
+    font-size: 16px;
+    margin: 0 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid $text-white;
+    z-index: 1;
+    text-decoration: none;
+  }
+
+  .icon {
+    position: relative;
+    color: $primary-dark;
+    transition: 0.5s;
+    z-index: 3;
+    line-height: 1;
+  }
+
+  li a:hover .icon {
+    color: $text-white;
+    transform: rotateY(360deg);
+  }
+
+  li a::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $primary;
+    transition: 0.5s;
+    z-index: 2;
+  }
+
+  li a:hover::before {
+    top: 0;
+  }
+
+  // All icons use site primary color
+  li:nth-child(1) a::before,
+  li:nth-child(2) a::before,
+  li:nth-child(3) a::before,
+  li:nth-child(4) a::before {
+    background: $primary;
+  }
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+  .top {
+    flex-direction: column;
+  }
+
+  .links {
+    gap: 2rem;
+  }
+
+  .bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+}
