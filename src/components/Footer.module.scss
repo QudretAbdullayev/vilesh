@@ -1,15 +1,11 @@
 // Footer.module.scss
 
-// Shared palette with CornerNav
-$primary: #7c3aed;
-$primary-dark: #6d28d9;
-$primary-darker: #5b21b6;
-$primary-light: #a78bfa;
-$text-light: #f5f3ff;
+$primary: #0347b0;
+$text-light: #e2e8f0;
 $text-white: #ffffff;
 
 .footer {
-  background-color: $primary-dark;
+  background-color: $primary;
   color: $text-light;
   padding: 4rem 2rem 2rem;
   position: relative;
@@ -43,7 +39,7 @@ $text-white: #ffffff;
 }
 
 .tagline {
-  color: $primary-light;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 1rem;
   line-height: 1.6;
   margin: 0;
@@ -69,7 +65,7 @@ $text-white: #ffffff;
   }
 
   a {
-    color: $primary-light;
+    color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
     font-size: 0.95rem;
     transition: color 0.3s ease;
@@ -84,7 +80,7 @@ $text-white: #ffffff;
   max-width: 1200px;
   margin: 3rem auto 1.5rem;
   height: 1px;
-  background-color: rgba($text-white, 0.15);
+  background-color: rgba($text-white, 0.1);
 }
 
 .bottom {
@@ -98,7 +94,7 @@ $text-white: #ffffff;
 }
 
 .copy {
-  color: $primary-light;
+  color: rgba(255, 255, 255, 0.4);
   font-size: 0.9rem;
   margin: 0;
 }
@@ -130,7 +126,7 @@ $text-white: #ffffff;
 
   .icon {
     position: relative;
-    color: $primary-dark;
+    color: $primary;
     transition: 0.5s;
     z-index: 3;
     line-height: 1;

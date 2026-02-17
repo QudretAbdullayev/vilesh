@@ -11,9 +11,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 20%, rgba(255, 107, 107, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255, 142, 83, 0.08) 0%, transparent 50%);
+    background:
+      radial-gradient(circle at 20% 20%, rgba(3, 71, 176, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
     pointer-events: none;
   }
 }
@@ -61,7 +61,8 @@
 }
 
 .primaryButton {
-  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  background: linear-gradient(135deg, #0347b0, #06b6d4);
+  /* Blue to Cyan */
   color: white;
   border: none;
   padding: 1.25rem 3rem;
@@ -69,7 +70,7 @@
   font-weight: 600;
   border-radius: 3rem;
   cursor: pointer;
-  box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 8px 32px rgba(3, 71, 176, 0.3);
   transition: all 0.3s cubic-bezier(0.65, 0, 0.35, 1);
   position: relative;
   overflow: hidden;
@@ -89,7 +90,7 @@
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 48px rgba(255, 107, 107, 0.4);
+    box-shadow: 0 12px 48px rgba(3, 71, 176, 0.4);
 
     &::before {
       width: 300px;
@@ -173,7 +174,7 @@
         content: '→';
         position: absolute;
         left: 0;
-        color: #ff6b6b;
+        color: #0347b0;
         font-weight: 700;
       }
     }
@@ -185,6 +186,7 @@
     opacity: 0;
     transform: translateY(2rem);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

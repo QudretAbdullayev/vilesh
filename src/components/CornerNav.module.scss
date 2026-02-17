@@ -1,10 +1,10 @@
 // CornerNav.module.scss
 
 // Variables
-$primary: #7c3aed; // violet-600
-$primary-dark: #6d28d9; // violet-700
-$primary-light: #a78bfa; // violet-400
-$text-light: #f5f3ff; // violet-50
+$primary: #0347b0; // New Blue
+$primary-dark: #011b45; // Darker blue for hover
+$primary-light: #60a5fa;
+$text-light: #e2e8f0;
 $text-white: #ffffff;
 
 .menuButton {
@@ -15,7 +15,7 @@ $text-white: #ffffff;
   width: 5rem; // w-20 (80px)
   height: 5rem; // h-20 (80px)
   border-radius: 0.75rem; // rounded-xl (12px) - matching agent finding
-  background-color: #7c3aed; // violet-600 - Match the open state/brand color
+  background-color: $primary; // Match the open state/brand color
   border: none;
   cursor: pointer;
   transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
@@ -25,7 +25,16 @@ $text-white: #ffffff;
   display: block;
 
   &:hover {
-    background-color: #6d28d9; // violet-700
+    background-color: $primary-dark;
+  }
+}
+
+.menuButtonOpen {
+  background-color: transparent !important;
+  box-shadow: none;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
   }
 }
 
@@ -90,7 +99,7 @@ $text-white: #ffffff;
 }
 
 .menuLink {
-  color: $primary-light;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 4.5rem;
   font-weight: 700;
   line-height: 1;
@@ -99,7 +108,7 @@ $text-white: #ffffff;
   display: inline-block;
 
   &:hover {
-    color: $text-light;
+    color: #ffffff;
   }
 
   @media (max-width: 768px) {

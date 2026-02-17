@@ -58,8 +58,8 @@ const CornerNav = () => {
         initial={false}
         animate={isOpen ? "open" : "closed"}
         onClick={() => setIsOpen(!isOpen)}
-        className={styles.menuButton}
-        whileHover={{ backgroundColor: "#6d28d9" }}
+        className={`${styles.menuButton} ${isOpen ? styles.menuButtonOpen : ''}`}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
         <motion.span

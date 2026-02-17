@@ -1,14 +1,14 @@
 // Blog.module.scss
 
 // Shared palette - Premium Dark Theme
-$bg: #030303;
-$surface: #0a0a0a;
-$surface-hover: #121212;
-$primary: #8b5cf6; // Vibrant purple
+$bg: #02040a; // Deep rich blue-black
+$surface: #050a14; // Slightly lighter blue-black
+$surface-hover: #0a1122; // Hover state
+$primary: #0347b0; // New Primary Blue
 $primary-glow: rgba($primary, 0.4);
 $text-main: #ffffff;
-$text-secondary: #a1a1aa;
-$accent: #3b82f6; // Blue accent
+$text-secondary: #94a3b8; // Slate-400 (Cool gray)
+$accent: #06b6d4; // Cyan accent for pop
 
 .page {
   min-height: 100vh;
