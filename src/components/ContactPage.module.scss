@@ -1,0 +1,271 @@
+@import '../app/globals.css';
+
+.page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f8fafc;
+    /* Very light slate bg for premium feel */
+    color: #334155;
+    padding-bottom: 0;
+    /* Remove padding as Footer handles it */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    /* Not too tall */
+    background: #02040a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4rem;
+    /* Offset for navbar */
+    /* Removed negative margin */
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(3, 71, 176, 0.15) 0%, transparent 70%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 1rem;
+    color: white;
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    /* Add top padding back */
+    position: relative;
+    z-index: 10;
+    margin-bottom: 5rem;
+}
+
+/* Split Card Wrapper */
+.cardWrapper {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    /* 40% Info, 60% Form */
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    /* Deep, soft shadow */
+}
+
+/* Left Panel: Info (Dark) */
+.infoPanel {
+    background: #0347b0;
+    /* Primary Blue */
+    color: #ffffff;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Texture/Gradient Overlay on Info Panel */
+.infoPanel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+}
+
+.decorativeCircle {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.panelTitle {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.panelSubtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.contactDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+}
+
+.contactItem svg {
+    flex-shrink: 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Right Panel: Form (Light) */
+.formPanel {
+    padding: 3rem;
+    background: #ffffff;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+    /* Slate-500 */
+}
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 0.875rem 0;
+    border: none;
+    border-bottom: 2px solid #e2e8f0;
+    /* Underline Style */
+    background: transparent;
+    font-size: 1rem;
+    color: #334155;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    /* Square for underline */
+    font-family: inherit;
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 40px;
+    /* Starts small, expands */
+    padding-top: 0.5rem;
+}
+
+.input:focus,
+.textarea:focus {
+    outline: none;
+    border-bottom-color: #0347b0;
+    /* No glowing box shadow for cleaner look */
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: #cbd5e1;
+    /* Lighter placeholder */
+}
+
+.submitWrapper {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.submitButton {
+    background: #0347b0;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    /* Slight radius */
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(3, 71, 176, 0.2);
+}
+
+.submitButton:hover {
+    background: #02388a;
+    /* Darker blue */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(3, 71, 176, 0.3);
+}
+
+/* Map Section */
+.mapSection {
+    width: 100%;
+    max-width: 1100px;
+    /* Match container width */
+    margin: 5rem auto;
+    /* Center horizontally with margin */
+    height: 450px;
+    filter: grayscale(0.2);
+    /* Slight grayscale for feel */
+    border-radius: 20px;
+    /* Rounded corners */
+    overflow: hidden;
+    /* Ensure rounded corners clip map */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 0 1.5rem;
+    /* Padding for mobile safety */
+}
+
+@media (max-width: 900px) {
+    .cardWrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .infoPanel {
+        padding: 2.5rem;
+    }
+
+    .formPanel {
+        padding: 2.5rem;
+    }
+
+    .hero {
+        margin-bottom: -50px;
+    }
+}
