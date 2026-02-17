@@ -1,0 +1,116 @@
+// ShareButton.module.scss
+
+$primary: #8b5cf6;
+$primary-glow: rgba($primary, 0.35);
+$surface: rgba(255, 255, 255, 0.05);
+$border: rgba(255, 255, 255, 0.1);
+$text: #ffffff;
+
+.wrapper {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid $border;
+}
+
+/* ── Fixed-height bar ── */
+
+.bar {
+  height: 48px;
+  border-radius: 14px;
+  border: 1px solid $border;
+  background: $surface;
+  overflow: hidden;
+  position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.barActive {
+  border-color: rgba($primary, 0.4);
+  background: rgba($primary, 0.06);
+  box-shadow: 0 0 20px rgba($primary, 0.1);
+}
+
+/* ── "Share" label — default state ── */
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  height: 48px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: default;
+}
+
+/* ── Social icons — hover state (replaces label) ── */
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 48px;
+  padding: 0 0.5rem;
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: rgba($primary, 0.5);
+    background: rgba($primary, 0.15);
+    color: $text;
+    box-shadow: 0 0 14px rgba($primary, 0.2);
+  }
+
+  &:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+}
+
+.iconBtnCopied {
+  color: #22c55e;
+
+  &:hover {
+    border-color: rgba(34, 197, 94, 0.5);
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
+    box-shadow: 0 0 14px rgba(34, 197, 94, 0.2);
+  }
+}
+
+/* ── Tooltip ── */
+
+.tooltip {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  white-space: nowrap;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: $text;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  opacity: 0;
+  transition: all 0.15s ease;
+  pointer-events: none;
+  z-index: 10;
+}

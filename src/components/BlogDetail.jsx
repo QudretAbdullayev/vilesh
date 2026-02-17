@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import CornerNav from './CornerNav';
 import Footer from './Footer';
+import ShareButton from './ShareButton';
 import styles from './BlogDetail.module.scss';
 import { blogPosts } from '@/data/blogPosts';
 
@@ -130,6 +131,8 @@ export default function BlogDetail({ slug }) {
                             ))}
                         </ul>
                     </div>
+
+                    <ShareButton title={post.title} />
                 </aside>
 
                 {/* Content */}
