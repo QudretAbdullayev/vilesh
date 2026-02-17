@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -35,11 +35,16 @@ export default function BlogDetail({ slug }) {
     const [activeId, setActiveId] = useState('');
     const [headings, setHeadings] = useState([]);
 
+    // 1. Create Ref for content scoping
+    const contentRef = useRef(null);
+
     useEffect(() => {
-        // Parse content for headings to build TOC
-        // Since content is a string, we might simple parse it or query the DOM after render.
-        // Querying DOM is easier since we used dangerouslySetInnerHTML.
-        const elements = Array.from(document.querySelectorAll('h2, h3'));
+        // 2. Check if ref exists
+        if (!contentRef.current) return;
+
+        // 3. Scope selection to contentRef
+        const elements = Array.from(contentRef.current.querySelectorAll('h2, h3'));
+
         const mapped = elements.map((elem, index) => {
             if (!elem.id) {
                 elem.id = `heading-${index}`;
@@ -52,7 +57,8 @@ export default function BlogDetail({ slug }) {
         });
         setHeadings(mapped);
 
-        // Intersection Observer for Active TOC
+        // 4. Update IntersectionObserver with better rootMargin
+        // -80px top (header offset), -60% bottom (trigger when in top 40% of viewport)
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -61,7 +67,7 @@ export default function BlogDetail({ slug }) {
                     }
                 });
             },
-            { rootMargin: '-10% 0px -80% 0px' }
+            { rootMargin: '-80px 0px -60% 0px' }
         );
 
         elements.forEach((elem) => observer.observe(elem));
@@ -74,12 +80,6 @@ export default function BlogDetail({ slug }) {
 
             {/* Scroll Progress Bar */}
             <motion.div className={styles.progressBar} style={{ scaleX }} />
-
-            {/* Back Button */}
-            <Link href="/blog" className={styles.backButton}>
-                <ArrowLeft />
-                <span>Back to Blog</span>
-            </Link>
 
             <CornerNav />
 
@@ -132,11 +132,17 @@ export default function BlogDetail({ slug }) {
                         </ul>
                     </div>
 
+                    <Link href="/blog" className={styles.backButton}>
+                        <ArrowLeft />
+                        <span>Back to Blog</span>
+                    </Link>
+
                     <ShareButton title={post.title} />
                 </aside>
 
                 {/* Content */}
                 <motion.article
+                    ref={contentRef} // 5. Attach Ref
                     className={styles.content}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

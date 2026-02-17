@@ -64,12 +64,6 @@ export default function AboutPage({ data }) {
             {/* Scroll Progress Bar */}
             <motion.div className={styles.progressBar} style={{ scaleX }} />
 
-            {/* Back Button */}
-            <Link href="/" className={styles.backButton}>
-                <ArrowLeft />
-                <span>Back to Home</span>
-            </Link>
-
             <CornerNav />
 
             {/* Hero Section */}
@@ -94,6 +88,11 @@ export default function AboutPage({ data }) {
             <div className={styles.container}>
                 {/* Sidebar / TOC */}
                 <aside className={styles.sidebar}>
+                    <Link href="/" className={styles.backButton}>
+                        <ArrowLeft />
+                        <span>Back to Home</span>
+                    </Link>
+
                     <div className={styles.toc}>
                         <p className={styles.tocTitle}>Contents</p>
                         <ul className={styles.tocList}>

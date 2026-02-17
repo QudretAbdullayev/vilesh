@@ -64,12 +64,6 @@ export default function LegalPage({ data }) {
             {/* Scroll Progress Bar */}
             <motion.div className={styles.progressBar} style={{ scaleX }} />
 
-            {/* Back Button */}
-            <Link href="/" className={styles.backButton}>
-                <ArrowLeft />
-                <span>Back to Home</span>
-            </Link>
-
             <CornerNav />
 
             {/* Hero Section */}
@@ -95,6 +89,11 @@ export default function LegalPage({ data }) {
             <div className={styles.container}>
                 {/* Sidebar / TOC */}
                 <aside className={styles.sidebar}>
+                    <Link href="/" className={styles.backButton}>
+                        <ArrowLeft />
+                        <span>Back to Home</span>
+                    </Link>
+
                     <div className={styles.toc}>
                         <p className={styles.tocTitle}>On this page</p>
                         <ul className={styles.tocList}>

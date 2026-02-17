@@ -3,10 +3,10 @@
 .page {
     width: 100%;
     min-height: 100vh;
-    background-color: #02040a;
-    /* Deep rich blue-black */
-    /* Dark premium background */
-    color: #f5f5f5;
+    background-color: #ffffff;
+    /* Light Theme */
+    color: #334155;
+    /* Slate-700 */
     padding-bottom: 5rem;
 }
 
@@ -17,8 +17,8 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #0347b0, #00d2ff);
-    /* Blue gradient */
+    background: linear-gradient(90deg, #0347b0, #06b6d4);
+    /* Primary Blue to Cyan */
     /* Adjust to brand colors */
     transform-origin: 0%;
     z-index: 100;
@@ -45,7 +45,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.6;
+    opacity: 0.9;
+    /* Increased opacity since bg is white underneath */
     z-index: 0;
 }
 
@@ -55,7 +56,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(15, 15, 15, 0) 0%, rgba(15, 15, 15, 0.9) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%);
     z-index: 1;
 }
 
@@ -72,9 +73,9 @@
     font-size: 0.875rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: hsla(0, 0%, 100%, 0.6);
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1rem;
-    border: 1px solid hsla(0, 0%, 100%, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 0.5rem 1rem;
     border-radius: 99px;
     backdrop-filter: blur(4px);
@@ -85,10 +86,9 @@
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    background: linear-gradient(to right, #fff, #999);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff;
+    /* Keep hero title white for contrast on image */
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .meta {
@@ -96,7 +96,7 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    color: hsla(0, 0%, 100%, 0.5);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.9rem;
 }
 
@@ -146,8 +146,10 @@
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: hsla(0, 0%, 100%, 0.4);
+    color: #94a3b8;
+    /* Slate-400 */
     margin-bottom: 1.5rem;
+    font-weight: 600;
 }
 
 .tocList {
@@ -157,13 +159,15 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    border-left: 1px solid hsla(0, 0%, 100%, 0.1);
+    border-left: 1px solid #e2e8f0;
+    /* Slate-200 */
 }
 
 .tocLink {
     display: block;
     font-size: 0.95rem;
-    color: hsla(0, 0%, 100%, 0.5);
+    color: #64748b;
+    /* Slate-500 */
     text-decoration: none;
     padding-left: 1rem;
     border-left: 2px solid transparent;
@@ -174,11 +178,14 @@
 }
 
 .tocLink:hover {
-    color: #fff;
+    color: #0347b0;
+    /* Primary Blue */
 }
 
 .activeTocLink {
-    color: #fff;
+    color: #0347b0;
+    /* Primary Blue */
+    font-weight: 600;
     border-left-color: #0347b0;
     /* Active Blue */
     /* Accent color */
@@ -187,7 +194,8 @@
 .content {
     font-size: 1.125rem;
     line-height: 1.8;
-    color: hsla(0, 0%, 100%, 0.85);
+    color: #334155;
+    /* Slate-700 */
     max-width: 800px;
     /* Optimal reading width */
 }
@@ -197,7 +205,9 @@
     font-size: 2rem;
     margin-top: 3rem;
     margin-bottom: 1.5rem;
-    color: #fff;
+    color: #0347b0;
+    /* Primary Blue Titles */
+    font-weight: 700;
     scroll-margin-top: 6rem;
     /* Offset for sticky header */
 }
@@ -206,7 +216,9 @@
     font-size: 1.5rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    color: #eee;
+    color: #02388a;
+    /* Darker Primary */
+    font-weight: 600;
     scroll-margin-top: 6rem;
 }
 
@@ -223,25 +235,38 @@
 }
 
 .backButton {
-    position: fixed;
-    top: 2rem;
-    left: 2rem;
-    z-index: 50;
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    padding: 0.75rem 1.25rem;
-    border-radius: 99px;
-    cursor: pointer;
-    backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 0.6rem;
+
+    height: 48px;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    /* Small gap between Back and Share */
+
+    background: rgba(3, 71, 176, 0.05);
+    /* Tinted surface like share */
+    border: 1px solid rgba(3, 71, 176, 0.3);
+    /* Visible primary border */
+    border-radius: 14px;
+    /* Match ShareButton radius */
+
+    color: #0347b0;
+    /* Primary Blue */
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .backButton:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(3, 71, 176, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(3, 71, 176, 0.1);
 }
 
 /* Media Queries for Mobile */
